@@ -1022,7 +1022,6 @@ GameObject:
   - component: {fileID: 1866744698}
   - component: {fileID: 1866744697}
   - component: {fileID: 1866744696}
-  - component: {fileID: 1866744699}
   m_Layer: 5
   m_Name: Button - Play
   m_TagString: Untagged
@@ -1092,18 +1091,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1866744697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1866744699}
-        m_MethodName: startGame
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: testing
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1866744697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,15 +1129,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866744694}
   m_CullTransparentMesh: 0
---- !u!114 &1866744699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866744694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7319ec4342f5824b8795f3cb39b1dc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
