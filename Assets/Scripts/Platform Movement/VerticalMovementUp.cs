@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerticalMovement : MonoBehaviour
+public class VerticalMovementUp : MonoBehaviour
 {
+
+    //This makes the platform move up
     private Vector3 pos1;
     private Vector3 pos2;
 

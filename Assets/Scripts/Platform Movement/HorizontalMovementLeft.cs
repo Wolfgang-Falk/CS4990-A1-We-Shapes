@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class HorizontalMovementOne : MonoBehaviour
+public class HorizontalMovementLeft : MonoBehaviour
 {
 
-    // This platform starts on the Right and moves to the left. 
+    //This movement starts on the left and move to the right
+
     private Vector3 pos1;
     private Vector3 pos2;
-    
+
 
     public float speed = 0.01f;
 
@@ -19,7 +19,7 @@ public class HorizontalMovementOne : MonoBehaviour
     {
         pos1 = transform.position;
         pos2 = pos1;
-        pos2.x = pos1.x - 10.0f;
+        pos2.z = pos1.z + 10.0f;
     }
 
     // Update is called once per frame
