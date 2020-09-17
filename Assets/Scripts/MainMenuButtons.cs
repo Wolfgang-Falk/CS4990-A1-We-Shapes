@@ -18,6 +18,12 @@ public class MainMenuButtons : MonoBehaviour
         // if not shown, disable menu stuff, show controls, vice versa
     }
 
+    public void MainMenu()
+    {
+        Debug.Log("Attempting to go to main menu");
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void QuitGame()
     {
         Debug.Log("Ending the game.");
