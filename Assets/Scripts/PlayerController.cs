@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     private Rigidbody playerRigidbody;
 
-    public float speed = 10f;
+    public bool playerInControl = true;
+
+    public float speed = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +43,36 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        //inputVector = new Vector3(Input.GetAxis("Horizontal")*speed, playerRigidBody.velocity.y, Input.GetAxis("Vertical")*speed);
-        //playerRigidBody.velocity = inputVector;
+        // If this isn't the controlled object, stop.
+        if ( !playerInControl ) { return; }
+
+        // Get the input of the player.
+        float _inputH = Input.GetAxis("Horizontal");
+        float _inputV = Input.GetAxis("Vertical");
+
+        Vector3 _inputs = new Vector3(_inputH, 0, _inputV);
+
+        // Get the rotation of the camera.
+        float _cameraAngle = cameraTransform.eulerAngles.y;
+
+        // Create the final rotation from what we have.
+        Vector3 _finalRotation = Quaternion.Euler(0, _cameraAngle, 0) * _inputs;
+
+        // Move the rigidbody.
+        playerRigidbody.MovePosition(transform.position + ( _finalRotation * speed * Time.deltaTime ) );
+
+        // NOTE: This will not rotate the player object, this will be replaced later.
+
+    }
+
+    void FallChecker()
+    {
+        // Check if we fall down, and reload the scene.
+        if ( transform.position.y < -10 )
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +80,7 @@ public class PlayerController : MonoBehaviour
     {
 
         PlayerMovement();
+        FallChecker();
 
         // TODO: Shape Transformation
 
