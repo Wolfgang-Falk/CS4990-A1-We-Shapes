@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     private Rigidbody playerRigidbody;
 
+    // Player Movement Vector
+    private Vector3 inputVector;
+
     public bool playerInControl = true;
 
     public float speed = 5f;
@@ -45,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         // If this isn't the controlled object, stop.
         if ( !playerInControl ) { return; }
-
+/*
         // Get the input of the player.
         float _inputH = Input.GetAxis("Horizontal");
         float _inputV = Input.GetAxis("Vertical");
@@ -62,6 +65,14 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.MovePosition(transform.position + ( _finalRotation * speed * Time.deltaTime ) );
 
         // NOTE: This will not rotate the player object, this will be replaced later.
+        */
+
+
+        //Another way to do Character Movement that does not take into account the Camera Angle. Might be easier to use - Lin
+
+        inputVector = new Vector3(Input.GetAxis("Horizontal") * speed, playerRigidbody.velocity.y, Input.GetAxis("Vertical") * speed);
+        playerRigidbody.velocity = inputVector;
+
 
     }
 
