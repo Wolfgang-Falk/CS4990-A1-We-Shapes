@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     // We want to use this to rotate the camera later.
     public Transform cameraTransform;
+    private Rigidbody playerRigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,9 @@ public class PlayerController : MonoBehaviour
                 Debug.LogError("Unable to get the Camera!");
             }            
         }
+
+        playerRigidbody = GetComponent<Rigidbody>();
+
 
     }
 
