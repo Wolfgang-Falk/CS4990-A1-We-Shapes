@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     private Rigidbody playerRigidbody;
 
+    public float speed = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,17 +38,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void PlayerMovement()
+    {
+        //inputVector = new Vector3(Input.GetAxis("Horizontal")*speed, playerRigidBody.velocity.y, Input.GetAxis("Vertical")*speed);
+        //playerRigidBody.velocity = inputVector;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
-        // TODO: Player Movement
+        PlayerMovement();
 
         // TODO: Shape Transformation
-
-        // TODO: Collectibles
-
-        // TODO: Camera Rotation based on collision with triggers.
 
     }
 }
