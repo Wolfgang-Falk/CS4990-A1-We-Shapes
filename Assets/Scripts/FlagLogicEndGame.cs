@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class FlagLogic : MonoBehaviour
+public class FlagLogicEndGame : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("LevelOne");
+        GameObject.Find("GameController").GetComponent<GameControllerScript>().GameWin();
     }
 }

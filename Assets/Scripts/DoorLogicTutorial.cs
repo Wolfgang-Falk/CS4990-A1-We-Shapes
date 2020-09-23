@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorLogic : MonoBehaviour
+public class DoorLogicTutorial : MonoBehaviour
 {
 
     public GameObject gameController;
@@ -18,7 +18,7 @@ public class DoorLogic : MonoBehaviour
     void Update()
     {
         //Check to make sure score is at the correct value to continue
-        if(gameController.GetComponent<GameControllerScript>().collectables == 5)
+        if(gameController.GetComponent<GameControllerScript>().collectables == 1)
         {
             Destroy(gameObject);
         }
